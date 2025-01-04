@@ -1,4 +1,17 @@
 {
     "userspace_version": "1.0",
-    "build_targets": []
+    "build_targets": [
+        [
+            "kinesis/kint41",
+            "jmlynn"
+        ],
+        [
+            "bastardkb/skeletyl/v2/splinky_3",
+            "jmlynn"
+        ],
+        [
+            "beekeeb/piantor",
+            "jmlynn"
+        ]
+    ]
 }
