@@ -25,16 +25,29 @@ enum layers {
 #define OS_RGUI OSM(MOD_RGUI)
 
 // misc
-#define SSHOT SGUI(KC_S)
-#define UNDO C(KC_Z)
-#define REDO C(S(KC_Z))
-#define CUT C(KC_X)
-#define COPY C(KC_C)
-#define PASTE C(KC_V)
-#define TAB_CLS C(KC_W)
-#define TAB_NEW C(KC_T)
-#define TAB_PREV C(S(KC_TAB))
-#define TAB_NEXT C(KC_TAB)
+// #define SSHOT SGUI(KC_S)
+// #define UNDO C(KC_Z)
+// #define REDO C(S(KC_Z))
+// #define CUT C(KC_X)
+// #define COPY C(KC_C)
+// #define PASTE C(KC_V)
+// #define TAB_CLS C(KC_W)
+// #define TAB_NEW C(KC_T)
+// #define TAB_PREV C(S(KC_TAB))
+// #define TAB_NEXT C(KC_TAB)
+// #define BACK KC_WBAK
+// #define FWD KC_WFWD
+
+#define SSHOT C(S(SGUI(KC_4)))
+#define UNDO SGUI(KC_Z)
+#define REDO SGUI(S(KC_Z))
+#define CUT SGUI(KC_X)
+#define COPY SGUI(KC_C)
+#define PASTE SGUI(KC_V)
+#define TAB_CLS SGUI(KC_W)
+#define TAB_NEW SGUI(KC_T)
+#define TAB_PREV SGUI(S(KC_TAB))
+#define TAB_NEXT SGUI(KC_TAB)
 #define BACK KC_WBAK
 #define FWD KC_WFWD
 
@@ -73,7 +86,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // |--------+---------+---------+---------+--------+--------|                                                 |--------+---------+---------+---------+--------+---------|
     _______ , KC_ESC  , KC_LBRC , KC_LCBR , KC_LPRN, KC_TILD,                                                  KC_CIRC , KC_RPRN , KC_RCBR , KC_RBRC , KC_GRV , _______ ,
 // |--------+---------+---------+---------+--------+--------|                                                 |--------+---------+---------+---------+--------+---------|
-    _______ , KC_MINS , KC_ASTR , KC_EQL  , KC_UNDS, KC_DLR ,                                                  KC_HASH , OS_RSFT , OS_RCTL , OS_RALT , OS_RGUI, _______ ,
+    _______ , KC_MINS , KC_ASTR , KC_EQL  , KC_UNDS, KC_DLR ,                                                  KC_HASH , OS_RSFT , OS_RGUI , OS_RALT , OS_RCTL, _______ ,
 // |--------+---------+---------+---------+--------+--------|                                                 |--------+---------+---------+---------+--------+---------|
     _______ , KC_PLUS , KC_PIPE , KC_AT   , KC_SLSH, KC_PERC,                                                  XXXXXXX , KC_BSLS , KC_AMPR , KC_QUES , KC_EXLM, _______ ,
 // `--------+---------+---------+---------+--------+--------'                                                 `--------+---------+---------+---------+--------+---------'
@@ -95,11 +108,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // |--------+---------+---------+---------+--------+--------+-------------------------------------------------+--------+---------+---------+---------+--------+---------|
     _______ , _______ , _______ , _______ , _______, _______,                                                  _______ , _______ , _______ , _______ , _______, _______ ,
 // |--------+---------+---------+---------+--------+--------|                                                 |--------+---------+---------+---------+--------+---------|
-    _______ , REDO    , SSHOT   , COPY    , PASTE  , CUT    ,                                                  KC_TAB  , KC_HOME , KC_UP   , KC_END  , KC_DEL , _______ ,
+    _______ , XXXXXXX , XXXXXXX , COPY    , SSHOT  , CUT    ,                                                  KC_TAB  , KC_HOME , KC_UP   , KC_END  , KC_DEL , _______ ,
 // |--------+---------+---------+---------+--------+--------|                                                 |--------+---------+---------+---------+--------+---------|
-    _______ , OS_LGUI , OS_LALT , OS_LCTL , OS_LSFT, XXXXXXX,                                                  CW_TOGG , KC_LEFT , KC_DOWN , KC_RIGHT, KC_BSPC, _______ ,
+    _______ , OS_LCTL , OS_LALT , OS_LGUI , OS_LSFT, XXXXXXX,                                                  CW_TOGG , KC_LEFT , KC_DOWN , KC_RIGHT, KC_BSPC, _______ ,
 // |--------+---------+---------+---------+--------+--------|                                                 |--------+---------+---------+---------+--------+---------|
-    _______ , UNDO    , TAB_NEW , TAB_PREV,TAB_NEXT, TAB_CLS,                                                  XXXXXXX , KC_PGDN , KC_PGUP , BACK    , FWD    , _______ ,
+    _______ , UNDO    , CUT     , COPY    , PASTE  , XXXXXXX,                                                  XXXXXXX , KC_PGDN , KC_PGUP , BACK    , FWD    , _______ ,
 // `--------+---------+---------+---------+--------+--------'                                                 `--------+---------+---------+---------+--------+---------'
               _______ , _______ , _______ , _______,                                                                     _______ , _______ , _______ , _______,
 //          `--------------------------------------'                                                                   `--------------------------------------'
@@ -121,9 +134,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // |--------+---------+---------+---------+--------+--------|                                                 |--------+---------+---------+---------+--------+---------|
     _______ , KC_1    , KC_2    , KC_3    , KC_4   , KC_5   ,                                                  KC_6    , KC_7    , KC_8    , KC_9    , KC_0   , _______ ,
 // |--------+---------+---------+---------+--------+--------|                                                 |--------+---------+---------+---------+--------+---------|
-    _______ , OS_LGUI , OS_LALT , OS_LCTL , OS_LSFT, KC_F11 ,                                                  KC_F12  , OS_RSFT , OS_RCTL , OS_RALT , OS_RGUI, _______ ,
+    _______ , OS_LCTL , OS_LALT , OS_LGUI , OS_LSFT, KC_F6  ,                                                  KC_F7   , OS_RSFT , OS_RGUI , OS_RALT , OS_RCTL, _______ ,
 // |--------+---------+---------+---------+--------+--------|                                                 |--------+---------+---------+---------+--------+---------|
-    _______ , KC_F1   , KC_F2   , KC_F3   , KC_F4  , KC_F5  ,                                                  KC_F6   , KC_F7   , KC_F8   , KC_F9   , KC_F10 , _______ ,
+    _______ , KC_F1   , KC_F2   , KC_F3   , KC_F4  , KC_F5  ,                                                  KC_F8   , KC_F9   , KC_F10   , KC_F11 , KC_F12 , _______ ,
 // `--------+---------+---------+---------+--------+--------'                                                 `--------+---------+---------+---------+--------+---------'
               _______ , _______ , _______ , _______,                                                                     _______ , _______ , _______ , _______,
 //          `--------------------------------------'                                                                   `--------------------------------------'
@@ -171,3 +184,24 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 void matrix_init_user(void) {
     steno_set_mode(STENO_MODE_GEMINI); // or STENO_MODE_BOLT
 }
+
+enum combos {
+    CMB_CW,
+    CMB_ENTER,
+    CMB_ESC,
+    CMB_CAPS,
+};
+
+const uint16_t PROGMEM combo_cw[]    = {KC_QUOT, KC_L, COMBO_END};
+const uint16_t PROGMEM combo_enter[] = {KC_H, KC_T, KC_N, COMBO_END};
+const uint16_t PROGMEM combo_esc[]   = {KC_O, KC_E, KC_U, COMBO_END};
+const uint16_t PROGMEM combo_caps[]  = {KC_SCLN, KC_X, COMBO_END};
+
+// clang-format off
+combo_t key_combos[]  = {
+    [CMB_CW] = COMBO(combo_cw, CW_TOGG),
+    [CMB_ENTER] = COMBO(combo_enter, KC_ENT),
+    [CMB_ESC] = COMBO(combo_esc, KC_ESC),
+    [CMB_CAPS] = COMBO(combo_caps, KC_CAPS),
+};
+// clang-format on

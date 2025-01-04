@@ -18,3 +18,4 @@ SLEEP_LED_ENABLE = no       # Breathing sleep LED during USB suspend
 STENO_ENABLE = yes
 MOUSEKEY_ENABLE = no
 CAPS_WORD_ENABLE = yes
+COMBO_ENABLE = yes
