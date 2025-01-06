@@ -38,16 +38,16 @@ enum layers {
 // #define BACK KC_WBAK
 // #define FWD KC_WFWD
 
-#define SSHOT C(S(SGUI(KC_4)))
-#define UNDO SGUI(KC_Z)
-#define REDO SGUI(S(KC_Z))
-#define CUT SGUI(KC_X)
-#define COPY SGUI(KC_C)
-#define PASTE SGUI(KC_V)
-#define TAB_CLS SGUI(KC_W)
-#define TAB_NEW SGUI(KC_T)
-#define TAB_PREV SGUI(S(KC_TAB))
-#define TAB_NEXT SGUI(KC_TAB)
+#define SSHOT C(S(G(KC_4)))
+#define UNDO G(KC_Z)
+#define REDO G(S(KC_Z))
+#define CUT G(KC_X)
+#define COPY G(KC_C)
+#define PASTE G(KC_V)
+#define TAB_CLS G(KC_W)
+#define TAB_NEW G(KC_T)
+#define TAB_PREV G(S(KC_TAB))
+#define TAB_NEXT G(KC_TAB)
 #define BACK KC_WBAK
 #define FWD KC_WFWD
 
