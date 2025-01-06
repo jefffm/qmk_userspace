@@ -190,12 +190,24 @@ enum combos {
     CMB_ENTER,
     CMB_ESC,
     CMB_CAPS,
+    CMB_LBRC,
+    CMB_LCBR,
+    CMB_LPRN,
+    CMB_RBRC,
+    CMB_RCBR,
+    CMB_RPRN,
 };
 
 const uint16_t PROGMEM combo_cw[]    = {KC_QUOT, KC_L, COMBO_END};
 const uint16_t PROGMEM combo_enter[] = {KC_H, KC_T, KC_N, COMBO_END};
 const uint16_t PROGMEM combo_esc[]   = {KC_O, KC_E, KC_U, COMBO_END};
 const uint16_t PROGMEM combo_caps[]  = {KC_SCLN, KC_X, COMBO_END};
+const uint16_t PROGMEM combo_lbrc[]  = {KC_COMM, KC_O, COMBO_END};
+const uint16_t PROGMEM combo_lcbr[]  = {KC_DOT, KC_E, COMBO_END};
+const uint16_t PROGMEM combo_lprn[]  = {KC_P, KC_U, COMBO_END};
+const uint16_t PROGMEM combo_rbrc[]  = {KC_R, KC_N, COMBO_END};
+const uint16_t PROGMEM combo_rcbr[]  = {KC_C, KC_T, COMBO_END};
+const uint16_t PROGMEM combo_rprn[]  = {KC_G, KC_H, COMBO_END};
 
 // clang-format off
 combo_t key_combos[]  = {
@@ -203,5 +215,11 @@ combo_t key_combos[]  = {
     [CMB_ENTER] = COMBO(combo_enter, KC_ENT),
     [CMB_ESC] = COMBO(combo_esc, KC_ESC),
     [CMB_CAPS] = COMBO(combo_caps, KC_CAPS),
+    [CMB_LBRC] = COMBO(combo_lbrc, KC_LBRC),
+    [CMB_LCBR] = COMBO(combo_lcbr, KC_LCBR),
+    [CMB_LPRN] = COMBO(combo_lprn, KC_LPRN),
+    [CMB_RBRC] = COMBO(combo_rbrc, KC_RBRC),
+    [CMB_RCBR] = COMBO(combo_rcbr, KC_RCBR),
+    [CMB_RPRN] = COMBO(combo_rprn, KC_RPRN),
 };
 // clang-format on
