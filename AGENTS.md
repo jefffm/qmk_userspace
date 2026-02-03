@@ -34,6 +34,31 @@ keyboards/
 users/jmlynn/                           # Shared code across keymaps
 ```
 
+## Task Management
+
+This project uses a CLI ticket system for task management. Run `tk help` when you need to use it.
+
+Common tk commands:
+```bash
+# List ready tasks (no blockers)
+tk ready
+
+# Show blocked tasks
+tk blocked
+
+# Show a specific ticket
+tk show <id>
+
+# Create a new task
+tk create "Task title" -d "Description" -t task
+
+# Start working on a task
+tk start <id>
+
+# Close a completed task
+tk close <id>
+```
+
 ## Important Notes
 
 - **ALWAYS compile after making changes** to verify syntax and configuration

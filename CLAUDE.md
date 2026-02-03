@@ -21,6 +21,10 @@ qmk compile -kb bastardkb/skeletyl/v2/splinky_3 -km jmlynn
 
 Replace the keyboard path with the appropriate one for the keymap you're modifying.
 
+## Task Management
+
+This project uses a CLI ticket system for task management. Run `tk help` when you need to use it.
+
 ## Active Migration Project
 
 There is an active migration from ZMK to QMK for the Skeletyl keyboard. See:
