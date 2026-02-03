@@ -40,6 +40,17 @@ enum layers {
 
 enum custom_keycodes { KC_HACKPIPE = SAFE_RANGE };
 
+// Combos - minimal placeholder to enable COMBO_ENABLE
+enum combo_events {
+    COMBO_DUMMY,
+};
+
+const uint16_t PROGMEM combo_dummy[] = {KC_NO, KC_NO, COMBO_END};
+
+combo_t key_combos[] = {
+    [COMBO_DUMMY] = COMBO(combo_dummy, KC_NO),
+};
+
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [DEF] = LAYOUT_split_3x5_3(
