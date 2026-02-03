@@ -40,15 +40,51 @@ enum layers {
 
 enum custom_keycodes { KC_HACKPIPE = SAFE_RANGE };
 
-// Combos - minimal placeholder to enable COMBO_ENABLE
+// Combos
 enum combo_events {
-    COMBO_DUMMY,
+    CMB_LBKT,   // [ - left bracket
+    CMB_LBRC,   // { - left brace
+    CMB_LPRN,   // ( - left paren
+    CMB_RPRN,   // ) - right paren
+    CMB_RBRC,   // } - right brace
+    CMB_RBKT,   // ] - right bracket
+    CMB_LSFT,   // oneshot left shift
+    CMB_RSFT,   // oneshot right shift
+    CMB_CW,     // caps word
+    CMB_CAPS,   // caps lock
+    CMB_ESC,    // escape
+    CMB_ENT,    // enter
+    CMB_SYS,    // SYS layer
 };
 
-const uint16_t PROGMEM combo_dummy[] = {KC_NO, KC_NO, COMBO_END};
+const uint16_t PROGMEM combo_lbkt[] = {KC_COMM, KC_O, COMBO_END};
+const uint16_t PROGMEM combo_lbrc[] = {KC_DOT, KC_E, COMBO_END};
+const uint16_t PROGMEM combo_lprn[] = {KC_P, KC_U, COMBO_END};
+const uint16_t PROGMEM combo_rprn[] = {KC_G, KC_H, COMBO_END};
+const uint16_t PROGMEM combo_rbrc[] = {KC_C, KC_T, COMBO_END};
+const uint16_t PROGMEM combo_rbkt[] = {KC_R, KC_N, COMBO_END};
+const uint16_t PROGMEM combo_lsft[] = {KC_DOT, KC_P, COMBO_END};
+const uint16_t PROGMEM combo_rsft[] = {KC_G, KC_C, COMBO_END};
+const uint16_t PROGMEM combo_cw[]   = {KC_QUOT, KC_L, COMBO_END};
+const uint16_t PROGMEM combo_caps[] = {KC_SCLN, KC_Z, COMBO_END};
+const uint16_t PROGMEM combo_esc[]  = {KC_O, KC_E, KC_U, COMBO_END};
+const uint16_t PROGMEM combo_ent[]  = {KC_H, KC_T, KC_N, COMBO_END};
+const uint16_t PROGMEM combo_sys[]  = {KC_BSPC, LA_SYM, COMBO_END};
 
 combo_t key_combos[] = {
-    [COMBO_DUMMY] = COMBO(combo_dummy, KC_NO),
+    [CMB_LBKT] = COMBO(combo_lbkt, KC_LBRC),
+    [CMB_LBRC] = COMBO(combo_lbrc, KC_LCBR),
+    [CMB_LPRN] = COMBO(combo_lprn, KC_LPRN),
+    [CMB_RPRN] = COMBO(combo_rprn, KC_RPRN),
+    [CMB_RBRC] = COMBO(combo_rbrc, KC_RCBR),
+    [CMB_RBKT] = COMBO(combo_rbkt, KC_RBRC),
+    [CMB_LSFT] = COMBO(combo_lsft, OS_LSFT),
+    [CMB_RSFT] = COMBO(combo_rsft, OS_RSFT),
+    [CMB_CW]   = COMBO(combo_cw, CW_TOGG),
+    [CMB_CAPS] = COMBO(combo_caps, KC_CAPS),
+    [CMB_ESC]  = COMBO(combo_esc, KC_ESC),
+    [CMB_ENT]  = COMBO(combo_ent, KC_ENT),
+    [CMB_SYS]  = COMBO(combo_sys, MO(SYS)),
 };
 
 // clang-format off
