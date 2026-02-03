@@ -143,9 +143,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [SYS] = LAYOUT_split_3x5_3(
   //┌────────┬────────┬────────┬────────┬────────┐  ┌────────┬────────┬────────┬────────┬────────┐
-     QK_BOOT ,TG(GAME),XXXXXXX ,XXXXXXX ,XXXXXXX ,   XXXXXXX ,KC_MPLY ,XXXXXXX ,XXXXXXX ,XXXXXXX ,
+     QK_BOOT ,TG(GAME),XXXXXXX ,XXXXXXX ,XXXXXXX ,   XXXXXXX ,KC_MPRV ,KC_MPLY ,KC_MNXT ,XXXXXXX ,
   //├────────┼────────┼────────┼────────┼────────┤  ├────────┼────────┼────────┼────────┼────────┤
-     KC_LGUI ,KC_LALT ,KC_LCTL ,KC_LSFT ,XXXXXXX ,   KC_MPRV ,KC_VOLD ,KC_VOLU ,KC_MNXT ,XXXXXXX ,
+     KC_LGUI ,KC_LALT ,KC_LCTL ,KC_LSFT ,XXXXXXX ,   XXXXXXX ,KC_VOLD ,KC_MUTE ,KC_VOLU ,XXXXXXX ,
   //├────────┼────────┼────────┼────────┼────────┤  ├────────┼────────┼────────┼────────┼────────┤
      XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,   XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,
   //└────────┴────────┼────────┼────────┼────────┤  ├────────┼────────┼────────┼────────┴────────┘

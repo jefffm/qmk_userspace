@@ -1,6 +1,6 @@
 ---
 id: qu-md8p
-status: open
+status: closed
 deps: []
 links: []
 created: 2026-02-03T13:44:55Z
