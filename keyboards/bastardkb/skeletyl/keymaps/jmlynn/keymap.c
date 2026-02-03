@@ -167,13 +167,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [GAME] = LAYOUT_split_3x5_3(
   //┌────────┬────────┬────────┬────────┬────────┐  ┌────────┬────────┬────────┬────────┬────────┐
-     XXXXXXX ,KC_Q    ,KC_W    ,KC_E    ,KC_R    ,   KC_LSFT ,KC_ENT  ,KC_UP   ,KC_R    ,TO(DEF) ,
+     KC_TAB  , KC_1   , KC_2   , KC_3   , KC_4   ,    KC_5   , KC_6   , KC_7   , KC_8   ,TG(GAME),
   //├────────┼────────┼────────┼────────┼────────┤  ├────────┼────────┼────────┼────────┼────────┤
-     XXXXXXX ,KC_A    ,KC_S    ,KC_D    ,KC_F    ,   XXXXXXX ,KC_LEFT ,KC_DOWN ,KC_RGHT ,KC_S    ,
+     KC_LSFT , KC_A   , KC_W   , KC_D   , KC_E   ,    KC_R   , KC_F   , KC_G   , KC_T   , KC_Y   ,
   //├────────┼────────┼────────┼────────┼────────┤  ├────────┼────────┼────────┼────────┼────────┤
-     XXXXXXX ,KC_Z    ,KC_X    ,KC_C    ,KC_V    ,   XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,
+     KC_LCTL , KC_Z   , KC_S   , KC_X   , KC_C   ,    KC_V   , KC_B   , KC_N   , KC_M   , KC_ESC ,
   //└────────┴────────┼────────┼────────┼────────┤  ├────────┼────────┼────────┼────────┴────────┘
-                        _______, _______, _______,    _______, _______, _______
+                        KC_Q   , KC_SPC , KC_LALT,    KC_ENT , KC_BSPC, KC_DEL
   //                  └────────┴────────┴────────┘  └────────┴────────┴────────┘
     ),
 };
