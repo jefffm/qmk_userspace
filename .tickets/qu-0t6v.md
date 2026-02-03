@@ -1,6 +1,6 @@
 ---
 id: qu-0t6v
-status: open
+status: closed
 deps: [qu-hfy8]
 links: []
 created: 2026-02-03T13:44:56Z
