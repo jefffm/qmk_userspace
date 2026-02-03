@@ -38,7 +38,10 @@ enum layers {
 #define BACK KC_WBAK
 #define FWD KC_WFWD
 
-enum custom_keycodes { KC_HACKPIPE = SAFE_RANGE };
+enum custom_keycodes {
+    KC_HACKPIPE = SAFE_RANGE,
+    KC_EMOJI,
+};
 
 // Combos
 enum combo_events {
@@ -103,11 +106,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [SYM] = LAYOUT_split_3x5_3(
   //┌────────┬────────┬────────┬────────┬────────┐  ┌────────┬────────┬────────┬────────┬────────┐
-     KC_ESC  ,KC_LBRC ,KC_LCBR ,KC_LPRN ,KC_TILD ,   KC_CIRC ,KC_RPRN ,KC_RCBR ,KC_RBRC ,KC_GRV  ,
+     XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,KC_TILD ,   KC_CIRC ,XXXXXXX ,KC_EMOJI,TO(TMUX),KC_GRV  ,
   //├────────┼────────┼────────┼────────┼────────┤  ├────────┼────────┼────────┼────────┼────────┤
      KC_MINS ,KC_ASTR ,KC_EQL  ,KC_UNDS ,KC_DLR  ,   KC_HASH ,OS_RSFT ,OS_RCTL ,OS_RALT ,OS_RGUI ,
   //├────────┼────────┼────────┼────────┼────────┤  ├────────┼────────┼────────┼────────┼────────┤
-     KC_PLUS ,KC_PIPE , KC_AT  , KC_SLSH, KC_PERC,   KC_HACKPIPE ,KC_BSLS ,KC_AMPR ,KC_QUES ,KC_EXLM ,
+     KC_PLUS ,KC_PIPE , KC_AT  ,KC_SLSH ,KC_PERC ,   KC_HACKPIPE,KC_BSLS,KC_AMPR,KC_QUES ,KC_EXLM ,
   //└────────┴────────┼────────┼────────┼────────┤  ├────────┼────────┼────────┼────────┴────────┘
                         _______, _______, _______,    _______, _______, _______
   //                  └────────┴────────┴────────┘  └────────┴────────┴────────┘
@@ -136,6 +139,42 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                        _______ , _______, _______,   _______ , _______, _______
   //                  └────────┴────────┴────────┘  └────────┴────────┴────────┘
     ),
+
+    [SYS] = LAYOUT_split_3x5_3(
+  //┌────────┬────────┬────────┬────────┬────────┐  ┌────────┬────────┬────────┬────────┬────────┐
+     QK_BOOT ,TG(GAME),XXXXXXX ,XXXXXXX ,XXXXXXX ,   XXXXXXX ,KC_MPLY ,XXXXXXX ,XXXXXXX ,XXXXXXX ,
+  //├────────┼────────┼────────┼────────┼────────┤  ├────────┼────────┼────────┼────────┼────────┤
+     KC_LGUI ,KC_LALT ,KC_LCTL ,KC_LSFT ,XXXXXXX ,   KC_MPRV ,KC_VOLD ,KC_VOLU ,KC_MNXT ,XXXXXXX ,
+  //├────────┼────────┼────────┼────────┼────────┤  ├────────┼────────┼────────┼────────┼────────┤
+     XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,   XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,
+  //└────────┴────────┼────────┼────────┼────────┤  ├────────┼────────┼────────┼────────┴────────┘
+                        _______, _______, _______,    _______, _______, _______
+  //                  └────────┴────────┴────────┘  └────────┴────────┴────────┘
+    ),
+
+    [TMUX] = LAYOUT_split_3x5_3(
+  //┌────────┬────────┬────────┬────────┬────────┐  ┌────────┬────────┬────────┬────────┬────────┐
+     XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,   XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,TO(DEF) ,
+  //├────────┼────────┼────────┼────────┼────────┤  ├────────┼────────┼────────┼────────┼────────┤
+     XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,   XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,
+  //├────────┼────────┼────────┼────────┼────────┤  ├────────┼────────┼────────┼────────┼────────┤
+     XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,   XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,
+  //└────────┴────────┼────────┼────────┼────────┤  ├────────┼────────┼────────┼────────┴────────┘
+                        _______, _______, _______,    _______, _______, _______
+  //                  └────────┴────────┴────────┘  └────────┴────────┴────────┘
+    ),
+
+    [GAME] = LAYOUT_split_3x5_3(
+  //┌────────┬────────┬────────┬────────┬────────┐  ┌────────┬────────┬────────┬────────┬────────┐
+     XXXXXXX ,KC_Q    ,KC_W    ,KC_E    ,KC_R    ,   KC_LSFT ,KC_ENT  ,KC_UP   ,KC_R    ,TO(DEF) ,
+  //├────────┼────────┼────────┼────────┼────────┤  ├────────┼────────┼────────┼────────┼────────┤
+     XXXXXXX ,KC_A    ,KC_S    ,KC_D    ,KC_F    ,   XXXXXXX ,KC_LEFT ,KC_DOWN ,KC_RGHT ,KC_S    ,
+  //├────────┼────────┼────────┼────────┼────────┤  ├────────┼────────┼────────┼────────┼────────┤
+     XXXXXXX ,KC_Z    ,KC_X    ,KC_C    ,KC_V    ,   XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,
+  //└────────┴────────┼────────┼────────┼────────┤  ├────────┼────────┼────────┼────────┴────────┘
+                        _______, _______, _______,    _______, _______, _______
+  //                  └────────┴────────┴────────┘  └────────┴────────┴────────┘
+    ),
 };
 // clang-format on
 
@@ -148,6 +187,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
         case KC_HACKPIPE:
             if (record->event.pressed) {
                 SEND_STRING("|>");
+            }
+            return false;
+        case KC_EMOJI:
+            if (record->event.pressed) {
+                tap_code16(LCTL(LGUI(KC_SPC)));
             }
             return false;
     }

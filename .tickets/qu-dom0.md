@@ -1,6 +1,6 @@
 ---
 id: qu-dom0
-status: open
+status: closed
 deps: [qu-u5r3]
 links: []
 created: 2026-02-03T13:44:55Z
