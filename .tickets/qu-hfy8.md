@@ -1,6 +1,6 @@
 ---
 id: qu-hfy8
-status: open
+status: closed
 deps: [qu-dom0]
 links: []
 created: 2026-02-03T13:44:55Z

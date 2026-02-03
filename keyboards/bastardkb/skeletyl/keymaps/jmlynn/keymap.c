@@ -24,19 +24,20 @@ enum layers {
 #define OS_RCTL OSM(MOD_RCTL)
 #define OS_RGUI OSM(MOD_RGUI)
 
-// misc
-#define SSHOT SGUI(KC_S)
-#define UNDO C(KC_Z)
-#define REDO C(S(KC_Z))
-#define CUT C(KC_X)
-#define COPY C(KC_C)
-#define PASTE C(KC_V)
-#define TAB_CLS C(KC_W)
-#define TAB_NEW C(KC_T)
-#define TAB_PREV C(S(KC_TAB))
-#define TAB_NEXT C(KC_TAB)
-#define BACK KC_WBAK
-#define FWD KC_WFWD
+// misc - macOS mode
+#define SSHOT SGUI(KC_4)      // Cmd+Shift+4 (screenshot selection)
+#define LOCK LCTL(LGUI(KC_Q)) // Ctrl+Cmd+Q (lock screen)
+#define GLOBE KC_LNG2         // Globe/Fn key (mapped to KC_LNG2, may need adjustment)
+#define UNDO G(KC_Z)
+#define CUT G(KC_X)
+#define COPY G(KC_C)
+#define PASTE G(KC_V)
+#define TAB_CLS G(KC_W)
+#define TAB_NEW G(KC_T)
+#define TAB_PREV G(S(KC_TAB))
+#define TAB_NEXT G(KC_TAB)
+#define BACK G(KC_LBRC)
+#define FWD G(KC_RBRC)
 
 enum custom_keycodes {
     KC_HACKPIPE = SAFE_RANGE,
@@ -118,11 +119,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [NAV] = LAYOUT_split_3x5_3(
   //┌────────┬────────┬────────┬────────┬────────┐  ┌────────┬────────┬────────┬────────┬────────┐
-     REDO    , SSHOT  , COPY   , PASTE  , CUT    ,   KC_TAB  ,KC_HOME , KC_UP  , KC_END , KC_DEL ,
+     XXXXXXX ,XXXXXXX ,XXXXXXX , SSHOT  , GLOBE  ,   KC_TAB  ,KC_HOME , KC_UP  , KC_END ,XXXXXXX ,
   //├────────┼────────┼────────┼────────┼────────┤  ├────────┼────────┼────────┼────────┼────────┤
-     OS_LGUI ,OS_LALT ,OS_LCTL ,OS_LSFT , XXXXXXX,   CW_TOGG ,KC_LEFT ,KC_DOWN ,KC_RGHT ,KC_BSPC ,
+     OS_LGUI ,OS_LALT ,OS_LCTL ,OS_LSFT ,KC_BSPC ,   KC_DEL  ,KC_LEFT ,KC_DOWN ,KC_RGHT ,XXXXXXX ,
   //├────────┼────────┼────────┼────────┼────────┤  ├────────┼────────┼────────┼────────┼────────┤
-     UNDO    , TAB_NEW,TAB_PREV,TAB_NEXT,TAB_CLS ,   XXXXXXX ,KC_PGDN ,KC_PGUP , BACK   , FWD    ,
+     UNDO    , CUT    , COPY   , PASTE  ,XXXXXXX ,   XXXXXXX ,KC_PGDN ,XXXXXXX ,KC_PGUP , LOCK   ,
   //└────────┴────────┼────────┼────────┼────────┤  ├────────┼────────┼────────┼────────┴────────┘
                         _______, _______, _______,    _______,KC_ENT  , _______
   //                  └────────┴────────┴────────┘  └────────┴────────┴────────┘
