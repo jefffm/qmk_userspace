@@ -1,6 +1,6 @@
 ---
 id: qu-qsjf
-status: open
+status: closed
 deps: []
 links: []
 created: 2026-02-03T13:44:56Z
