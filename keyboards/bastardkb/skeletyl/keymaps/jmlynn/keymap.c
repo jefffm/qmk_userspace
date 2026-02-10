@@ -25,7 +25,7 @@ enum layers {
 #define OS_RGUI OSM(MOD_RGUI)
 
 // misc - macOS mode
-#define SSHOT SGUI(KC_4)      // Cmd+Shift+4 (screenshot selection)
+#define SSHOT C(SGUI(KC_4))   // Ctrl+Cmd+Shift+4 (selection to clipboard)
 #define LOCK LCTL(LGUI(KC_Q)) // Ctrl+Cmd+Q (lock screen)
 #define GLOBE KC_LNG2         // Globe/Fn key (mapped to KC_LNG2, may need adjustment)
 #define UNDO G(KC_Z)
