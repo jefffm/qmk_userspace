@@ -44,7 +44,7 @@ enum layers {
 enum custom_keycodes {
     KC_HACKPIPE = SAFE_RANGE,
     KC_EMOJI,
-    // TMUX macros (prefix: Ctrl+B)
+    // TMUX macros (prefix: backtick `)
     TM_WNEW,  // new window
     TM_WPREV, // previous window
     TM_WNEXT, // next window
@@ -223,125 +223,125 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
             }
             return false;
 
-        // TMUX macros - all send Ctrl+B prefix then command key
+        // TMUX macros - all send backtick prefix then command key
         case TM_WNEW:
             if (record->event.pressed) {
-                SEND_STRING(SS_LCTL("b") "c");
+                SEND_STRING("`c");
             }
             return false;
         case TM_WPREV:
             if (record->event.pressed) {
-                SEND_STRING(SS_LCTL("b") "p");
+                SEND_STRING("`p");
             }
             return false;
         case TM_WNEXT:
             if (record->event.pressed) {
-                SEND_STRING(SS_LCTL("b") "n");
+                SEND_STRING("`n");
             }
             return false;
         case TM_WLAST:
             if (record->event.pressed) {
-                SEND_STRING(SS_LCTL("b") "l");
+                SEND_STRING("`l");
             }
             return false;
         case TM_WKILL:
             if (record->event.pressed) {
-                SEND_STRING(SS_LCTL("b") "&");
+                SEND_STRING("`&");
             }
             return false;
         case TM_WRNAM:
             if (record->event.pressed) {
-                SEND_STRING(SS_LCTL("b") ",");
+                SEND_STRING("`,");
             }
             return false;
         case TM_W1:
             if (record->event.pressed) {
-                SEND_STRING(SS_LCTL("b") "1");
+                SEND_STRING("`1");
             }
             return false;
         case TM_W2:
             if (record->event.pressed) {
-                SEND_STRING(SS_LCTL("b") "2");
+                SEND_STRING("`2");
             }
             return false;
         case TM_W3:
             if (record->event.pressed) {
-                SEND_STRING(SS_LCTL("b") "3");
+                SEND_STRING("`3");
             }
             return false;
         case TM_W4:
             if (record->event.pressed) {
-                SEND_STRING(SS_LCTL("b") "4");
+                SEND_STRING("`4");
             }
             return false;
         case TM_W5:
             if (record->event.pressed) {
-                SEND_STRING(SS_LCTL("b") "5");
+                SEND_STRING("`5");
             }
             return false;
         case TM_SPLTH:
             if (record->event.pressed) {
-                SEND_STRING(SS_LCTL("b") "\"");
+                SEND_STRING("`\"");
             }
             return false;
         case TM_SPLTV:
             if (record->event.pressed) {
-                SEND_STRING(SS_LCTL("b") "%");
+                SEND_STRING("`%");
             }
             return false;
         case TM_PNEXT:
             if (record->event.pressed) {
-                SEND_STRING(SS_LCTL("b") "o");
+                SEND_STRING("`o");
             }
             return false;
         case TM_PPREV:
             if (record->event.pressed) {
-                SEND_STRING(SS_LCTL("b") ";");
+                SEND_STRING("`;");
             }
             return false;
         case TM_PKILL:
             if (record->event.pressed) {
-                SEND_STRING(SS_LCTL("b") "x");
+                SEND_STRING("`x");
             }
             return false;
         case TM_PZOOM:
             if (record->event.pressed) {
-                SEND_STRING(SS_LCTL("b") "z");
+                SEND_STRING("`z");
             }
             return false;
         case TM_SNEW:
             if (record->event.pressed) {
-                SEND_STRING(SS_LCTL("b") ":new-session" SS_TAP(X_ENT));
+                SEND_STRING("`:new-session" SS_TAP(X_ENT));
             }
             return false;
         case TM_SDET:
             if (record->event.pressed) {
-                SEND_STRING(SS_LCTL("b") "d");
+                SEND_STRING("`d");
             }
             return false;
         case TM_SRNAM:
             if (record->event.pressed) {
-                SEND_STRING(SS_LCTL("b") "$");
+                SEND_STRING("`$");
             }
             return false;
         case TM_SNEXT:
             if (record->event.pressed) {
-                SEND_STRING(SS_LCTL("b") ")");
+                SEND_STRING("`)");
             }
             return false;
         case TM_SPREV:
             if (record->event.pressed) {
-                SEND_STRING(SS_LCTL("b") "(");
+                SEND_STRING("`(");
             }
             return false;
         case TM_SCROL:
             if (record->event.pressed) {
-                SEND_STRING(SS_LCTL("b") "[");
+                SEND_STRING("`[");
             }
             return false;
         case TM_CMD:
             if (record->event.pressed) {
-                SEND_STRING(SS_LCTL("b") ":");
+                SEND_STRING("`:");
             }
             return false;
     }
