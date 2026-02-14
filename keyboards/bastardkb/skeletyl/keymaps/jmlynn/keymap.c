@@ -14,7 +14,7 @@ enum layers {
 // layers
 #define LA_SYM MO(SYM)
 #define LA_NAV MO(NAV)
-#define LA_MOUSE MO(MOUSE)
+#define LA_MOUSE LT(MOUSE, KC_GRV)  // tap = backtick (tmux prefix), hold = mouse layer
 
 // oneshot mods
 #define OS_LSFT OSM(MOD_LSFT)
@@ -69,6 +69,7 @@ enum custom_keycodes {
     TM_SPREV, // previous session
     TM_SCROL, // scroll/copy mode
     TM_CMD,   // command prompt
+    TM_LAYOT, // toggle layout
 };
 
 // Combos
@@ -156,15 +157,36 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //                  └────────┴────────┴────────┘  └────────┴────────┴────────┘
     ),
 
+    // TMUX Layer - Grid Layout
+    // ========================
+    // Organized by tmux object (rows) and action type (columns):
+    //
+    // ROWS:
+    //   Top    = Windows
+    //   Middle = Panes
+    //   Bottom = Sessions
+    //
+    // LEFT HAND COLUMNS (actions):
+    //   Col 1 = Create (new window, vsplit, -)
+    //   Col 2 = Secondary (rename, hsplit, -)
+    //   Col 3 = Kill/Destroy
+    //
+    // RIGHT HAND COLUMNS (navigation):
+    //   Col 1 = Previous
+    //   Col 2 = Next
+    //   Col 3 = Utility (layout toggle, zoom, scroll/copy)
+    //   Col 5 = Exit layer
+    //
+    // Thumb tap (LT on DEF layer) sends raw backtick prefix for ad-hoc tmux commands.
     [TMUX] = LAYOUT_split_3x5_3(
   //┌────────┬────────┬────────┬────────┬────────┐  ┌────────┬────────┬────────┬────────┬────────┐
-      TM_W1   ,TM_W2   ,TM_W3   ,TM_W4   ,TM_W5   ,   TM_WNEW ,TM_WPREV,TM_WNEXT,TM_WLAST,TO(DEF) ,
+     TM_WNEW ,TM_WRNAM,TM_WKILL,XXXXXXX ,XXXXXXX ,   TM_WPREV,TM_WNEXT,TM_LAYOT,XXXXXXX ,TO(DEF) ,
   //├────────┼────────┼────────┼────────┼────────┤  ├────────┼────────┼────────┼────────┼────────┤
-      TM_SNEW ,TM_SRNAM,TM_SPREV,TM_SNEXT,TM_SDET ,   TM_SPLTH,TM_PPREV,TM_PNEXT,TM_PZOOM,TM_PKILL,
+     TM_SPLTV,TM_SPLTH,TM_PKILL,XXXXXXX ,XXXXXXX ,   TM_PPREV,TM_PNEXT,TM_PZOOM,XXXXXXX ,XXXXXXX ,
   //├────────┼────────┼────────┼────────┼────────┤  ├────────┼────────┼────────┼────────┼────────┤
-      TM_CMD  ,TM_WRNAM,TM_SCROL,XXXXXXX ,XXXXXXX ,   TM_SPLTV,XXXXXXX ,XXXXXXX ,TM_WKILL,XXXXXXX ,
+     XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,   TM_SPREV,TM_SNEXT,TM_SCROL,XXXXXXX ,XXXXXXX ,
   //└────────┴────────┼────────┼────────┼────────┤  ├────────┼────────┼────────┼────────┴────────┘
-                         _______, _______, _______,    _______, _______, _______
+                        _______, _______, _______,    _______, _______, _______
   //                  └────────┴────────┴────────┘  └────────┴────────┴────────┘
     ),
 
@@ -342,6 +364,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
         case TM_CMD:
             if (record->event.pressed) {
                 SEND_STRING("`:");
+            }
+            return false;
+        case TM_LAYOT:
+            if (record->event.pressed) {
+                SEND_STRING("` ");
             }
             return false;
     }
