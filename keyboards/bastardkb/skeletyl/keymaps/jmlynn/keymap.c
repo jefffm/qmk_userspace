@@ -70,6 +70,13 @@ enum custom_keycodes {
     TM_SCROL, // scroll/copy mode
     TM_CMD,   // command prompt
     TM_LAYOT, // toggle layout
+      TM_WBROW, // choose window (interactive)
+      TM_WFIND, // find window by name
+      TM_PBRK,  // break pane to new window
+      TM_PSWAP, // swap pane position
+      TM_RSIZE, // resize mode
+      TM_SBROW, // choose session (interactive)
+      TM_SLAST, // last session
 };
 
 // Combos
@@ -180,11 +187,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // Thumb tap (LT on DEF layer) sends raw backtick prefix for ad-hoc tmux commands.
     [TMUX] = LAYOUT_split_3x5_3(
   //┌────────┬────────┬────────┬────────┬────────┐  ┌────────┬────────┬────────┬────────┬────────┐
-     TM_WNEW ,TM_WRNAM,TM_WKILL,XXXXXXX ,XXXXXXX ,   TM_WPREV,TM_WNEXT,TM_LAYOT,XXXXXXX ,TO(DEF) ,
+     TM_WNEW ,TM_WRNAM,TM_WKILL,TM_WBROW,TM_WFIND,   TM_WPREV,TM_WNEXT,TM_WLAST,TM_LAYOT,TO(DEF) ,
   //├────────┼────────┼────────┼────────┼────────┤  ├────────┼────────┼────────┼────────┼────────┤
-     TM_SPLTV,TM_SPLTH,TM_PKILL,XXXXXXX ,XXXXXXX ,   TM_PPREV,TM_PNEXT,TM_PZOOM,XXXXXXX ,XXXXXXX ,
+     TM_SPLTV,TM_SPLTH,TM_PKILL,TM_PBRK ,TM_PSWAP,   XXXXXXX ,TM_PNEXT,TM_PPREV,TM_PZOOM,TM_RSIZE ,
   //├────────┼────────┼────────┼────────┼────────┤  ├────────┼────────┼────────┼────────┼────────┤
-     XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,   TM_SPREV,TM_SNEXT,TM_SCROL,XXXXXXX ,XXXXXXX ,
+     TM_SBROW,TM_SDET ,XXXXXXX ,XXXXXXX ,XXXXXXX ,   TM_SPREV,TM_SNEXT,TM_SLAST,TM_SCROL,XXXXXXX ,
   //└────────┴────────┼────────┼────────┼────────┤  ├────────┼────────┼────────┼────────┴────────┘
                         _______, _______, _______,    _______, _______, _______
   //                  └────────┴────────┴────────┘  └────────┴────────┴────────┘
@@ -371,6 +378,26 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
                 SEND_STRING("` ");
             }
             return false;
+        case TM_WBROW:
+            if (record->event.pressed) { SEND_STRING("`w"); }
+            return false;
+        case TM_WFIND:
+            if (record->event.pressed) { SEND_STRING("`f"); }
+            return false;
+        case TM_PBRK:
+            if (record->event.pressed) { SEND_STRING("`!"); }
+            return false;
+        case TM_PSWAP:
+            if (record->event.pressed) { SEND_STRING("`}"); }
+            return false;
+        case TM_RSIZE:
+            if (record->event.pressed) { SEND_STRING("`r"); }
+            return false;
+        case TM_SBROW:
+            if (record->event.pressed) { SEND_STRING("`s"); }
+            return false;
+        case TM_SLAST:
+            if (record->event.pressed) { SEND_STRING("`L"); kk
     }
 
     return true;
